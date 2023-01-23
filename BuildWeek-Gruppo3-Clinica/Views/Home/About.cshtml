@@ -2,6 +2,51 @@
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+
+    <div class="container-fluid">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" id="SearchMC" type="search" placeholder="Cerca il tuo amico a 4 zampe" aria-label="Search">
+            <btn class="btn btn-outline-success" id="GetAnimalByMC" type="submit">Search</btn>
+        </form>
+    </div>
+
+<div id="showInfo">
+    @if(ViewBag.msgEmpty !=null){
+        <div class="alert alert-warning">@ViewBag.msgEmpty</div>
+    }
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#GetAnimalByMC").click(function () { 
+            var MC = $('#SearchMC').val();
+            $('#showInfo').empty();
+            $.ajax({
+                method: 'GET',
+                data: { 'MC': MC },
+                url: '/Home/GetAnimalByMC',
+                success: function (a) { 
+   
+                    $("#showInfo").append("<div class=\"card\" style=\"width:200px\">" +
+                            "<div class=\"card-body\">" +
+                        "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
+                        "<p class=\"card-text\">Razza: " + a.Razza + "</p>" +
+                            "<p class=\"card-text\">Colore mantello: " + a.Colore + "</p>" +
+                            "<p class=\"card - text\"></p>" +
+                            "</div>" +
+                            "<img src=\"/Content/Assets/img/" + a.Foto + "\" class=\"card-img-bottom\">" +
+                            "</div>"
+                        );
+            
+                }
+            })
+        })
+
+    })
+
+</script>
+
