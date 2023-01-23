@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Aggiungi un nuovo animale", "Create")
 </p>
 <table class="table">
     <tr>
@@ -77,9 +77,9 @@
             @Html.DisplayFor(modelItem => item.Foto)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAnimale }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAnimale }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAnimale })
+            @Html.ActionLink("Storica Medica", "Index", "Visite", new { id = item.IdAnimale }, null) |
+            @Html.ActionLink("Modifica", "Edit", new { id = item.IdAnimale }) |
+            @Html.ActionLink("Cancella", "Delete", new { id = item.IdAnimale })
         </td>
     </tr>
 }

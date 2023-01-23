@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BuildWeek_Gruppo3_Clinica.Models.Visite>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid">
+    <div class="row d-flex">
+        <div class="col">
+            @{
+                Html.RenderAction("PartialViewSingleAnimal");
+            }
+        </div>
+        <div class="col">
+            <h2>Visite</h2>
+
+            <p>
+                @Html.ActionLink("Aggiungi Visita", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Anagr_Animale.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Referto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Diagnosi)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Anagr_Animale.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Referto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Diagnosi)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Modifica Visita", "Edit", new { id = item.IdVisita }) |
+                            @*@Html.ActionLink("Details", "Details", new { id = item.IdVisita }) |*@
+                            @Html.ActionLink("Cancella", "Delete", new { id = item.IdVisita })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

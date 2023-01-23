@@ -1,0 +1,50 @@
+﻿@model BuildWeek_Gruppo3_Clinica.Models.Visite
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Visite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Anagr_Animale.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anagr_Animale.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnosi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnosi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdVisita }) |
+    @Html.ActionLink("Back to List", "Index", new { id = Model.IdAnimale})
+</p>
