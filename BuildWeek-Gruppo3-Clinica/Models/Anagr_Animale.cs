@@ -5,6 +5,7 @@ namespace BuildWeek_Gruppo3_Clinica.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     public partial class Anagr_Animale
     {
@@ -46,6 +47,8 @@ namespace BuildWeek_Gruppo3_Clinica.Models
 
         [StringLength(50)]
         public string Foto { get; set; }
+        [NotMapped()]
+        public HttpPostedFileBase FileFoto { get; set; }
 
         public virtual Tipologia Tipologia { get; set; }
 

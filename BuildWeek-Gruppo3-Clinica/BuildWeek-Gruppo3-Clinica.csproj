@@ -129,8 +129,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnimaliController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TipologiaController.cs" />
+    <Compile Include="Controllers\VisiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,7 +141,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Anagr_Animale.cs" />
-    <Compile Include="Models\AnimaliJson.cs" />
     <Compile Include="Models\ModelDBContext.cs" />
     <Compile Include="Models\Tipologia.cs" />
     <Compile Include="Models\Utente.cs" />
@@ -164,7 +164,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Assets\img\bulldog.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -221,14 +220,21 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Tipologia\Create.cshtml" />
-    <Content Include="Views\Tipologia\Details.cshtml" />
-    <Content Include="Views\Tipologia\Edit.cshtml" />
-    <Content Include="Views\Tipologia\Index.cshtml" />
-    <Content Include="Views\Tipologia\_Delete.cshtml" />
+    <Content Include="Views\Animali\Create.cshtml" />
+    <Content Include="Views\Animali\Delete.cshtml" />
+    <Content Include="Views\Animali\Details.cshtml" />
+    <Content Include="Views\Animali\Edit.cshtml" />
+    <Content Include="Views\Animali\Index.cshtml" />
+    <Content Include="Views\Visite\Create.cshtml" />
+    <Content Include="Views\Visite\Delete.cshtml" />
+    <Content Include="Views\Visite\Details.cshtml" />
+    <Content Include="Views\Visite\Edit.cshtml" />
+    <Content Include="Views\Visite\Index.cshtml" />
+    <Content Include="Views\Visite\PartialViewSingleAnimal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Assets\Img\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

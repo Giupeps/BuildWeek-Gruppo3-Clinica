@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BuildWeek_Gruppo3_Clinica.Models.Anagr_Animale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Aggiungi un nuovo animale", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipologia.Animale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Colore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NrMicrochip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proprietario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeProprietario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Indirizzo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contatto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipologia.Animale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Colore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NrMicrochip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proprietario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeProprietario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Indirizzo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contatto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foto)
+        </td>
+        <td>
+            @Html.ActionLink("Storica Medica", "Index", "Visite", new { id = item.IdAnimale }, null) |
+            @Html.ActionLink("Modifica", "Edit", new { id = item.IdAnimale }) |
+            @Html.ActionLink("Cancella", "Delete", new { id = item.IdAnimale })
+        </td>
+    </tr>
+}
+
+</table>
