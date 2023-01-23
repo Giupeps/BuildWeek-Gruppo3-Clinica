@@ -34,5 +34,6 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         public string Foto { get; set; }
 
         public string Razza { get; set; }
+
     }
 }
