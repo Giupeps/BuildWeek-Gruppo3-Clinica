@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BuildWeek_Gruppo3_Clinica.Models.Tipologia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipologie animali</h2>
+
+<p>
+    @Html.ActionLink("Nuova tipologia animale", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Animale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Razza)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Animale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Razza)
+            </td>
+            <td>
+                @Html.ActionLink("Modifica", "Edit", new { id = item.idTipo }) |
+                <button type="button" class="btn btn-primary ModalDelete" data-bs-toggle="modal" data-bs-target="#ModalTipo">
+                Elimina </button>
+            </td>
+        </tr>
+                    <div class="modal fade" id="ModalTipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina Tipologia</h1>
+                                    <btn type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></btn>
+
+                                    <div class="modal-body">
+                                        @{
+                                            Html.RenderAction("Delete", new { id = item.idTipo, @class = " modal-link" });
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+    }
+
+</table>
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".ModalDelete").click(function (e) {
+                e.preventDefault();
+            $(this).attr("data-bs-target", "#ModalTipo");
+            $(this).attr("data-bs-toggle", "modal");
+            });
+         
+            $("body").on("click", ".btn-close", function () {
+                $("#ModalTipo").modal("hide");
+            });
+
+        $("#ModalTipo").on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+</script>
