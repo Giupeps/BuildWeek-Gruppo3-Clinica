@@ -35,17 +35,18 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
 
             Anagr_Animale a = db.Anagr_Animale.Where(x => x.NrMicrochip == MC).Include(x => x.Tipologia).Include(x => x.Visite).FirstOrDefault();
 
-            if (a == null)
+
+            if (a != null) {         
             {
-                ViewBag.msgEmpty = "Non è stato rilevato alcun Microchip";
+                    aj.Nome = a.Nome;
+                    aj.NrMicrochip = a.NrMicrochip;
+                    aj.Foto = a.Foto;
+                    aj.Colore = a.Colore;
+                    aj.Razza = a.Tipologia.Animale + " " + a.Tipologia.Razza;
+            };
             }
-            else {
-                aj.Nome = a.Nome;
-                aj.NrMicrochip = a.NrMicrochip;
-                aj.Foto = a.Foto;
-                aj.Colore = a.Colore;
-                aj.Razza = a.Tipologia.Animale + " " + a.Tipologia.Razza;
-            }
+            else { aj.Nome = null; }
+
 
 
             return Json(aj, JsonRequestBehavior.AllowGet);

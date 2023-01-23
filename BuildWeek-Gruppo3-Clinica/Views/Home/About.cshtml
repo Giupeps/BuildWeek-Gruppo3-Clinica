@@ -12,9 +12,7 @@
     </div>
 
 <div id="showInfo">
-    @if(ViewBag.msgEmpty !=null){
-        <div class="alert alert-warning">@ViewBag.msgEmpty</div>
-    }
+
 </div>
 
 
@@ -22,26 +20,33 @@
 
     $(document).ready(function () {
 
-        $("#GetAnimalByMC").click(function () { 
+        $("#GetAnimalByMC").click(function () {
             var MC = $('#SearchMC').val();
             $('#showInfo').empty();
+               
             $.ajax({
                 method: 'GET',
                 data: { 'MC': MC },
                 url: '/Home/GetAnimalByMC',
-                success: function (a) { 
-   
-                    $("#showInfo").append("<div class=\"card\" style=\"width:200px\">" +
+                success: function (a) {
+                    if (a.Nome == null) {
+                        $("#showInfo").append("<div class=\"alert alert-warning mt-2\" style=\"width:200px\">Non è stato rilevato alcun Microchip</div>"
+                        )
+                    } else {
+                        $("#showInfo").append("<div class=\"card\" style=\"width:200px\">" +
                             "<div class=\"card-body\">" +
-                        "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
-                        "<p class=\"card-text\">Razza: " + a.Razza + "</p>" +
+                            "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
+                            "<p class=\"card-text\">Razza: " + a.Razza + "</p>" +
                             "<p class=\"card-text\">Colore mantello: " + a.Colore + "</p>" +
                             "<p class=\"card - text\"></p>" +
                             "</div>" +
                             "<img src=\"/Content/Assets/img/" + a.Foto + "\" class=\"card-img-bottom\">" +
                             "</div>"
                         );
-            
+
+                    }
+
+                   
                 }
             })
         })
