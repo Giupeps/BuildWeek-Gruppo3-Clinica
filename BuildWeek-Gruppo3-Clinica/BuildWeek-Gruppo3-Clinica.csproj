@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AnimaliController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,9 +219,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Animali\Create.cshtml" />
+    <Content Include="Views\Animali\Delete.cshtml" />
+    <Content Include="Views\Animali\Details.cshtml" />
+    <Content Include="Views\Animali\Edit.cshtml" />
+    <Content Include="Views\Animali\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Assets\Img\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
