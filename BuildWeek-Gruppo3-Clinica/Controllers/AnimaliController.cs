@@ -41,7 +41,8 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
 
                 foreach (var item in an)
                 {
-                    AnimaliJson j = new AnimaliJson { Nome = item.Nome, Foto = item.Foto, Razza = item.Tipologia.Razza, DataNascita = item.DataNascita, IdAnimale = item.IdAnimale };
+                    AnimaliJson j = new AnimaliJson { Nome = item.Nome, Foto = item.Foto, Razza = item.Tipologia.Razza, DataNascita = item.DataNascita.ToShortDateString(), IdAnimale = item.IdAnimale, DataRicovero = item.DataNascita };
+                    j.Giorni = j.GetDate();
                     aj.Add(j);
                 }
             }

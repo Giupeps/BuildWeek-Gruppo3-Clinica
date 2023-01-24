@@ -17,8 +17,10 @@ namespace BuildWeek_Gruppo3_Clinica.Models
 
         public string Colore { get; set; }
 
-
-        public DateTime DataNascita { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public string DataNascita { get; set; }
+        
+        public DateTime DataRicovero { get; set; }
 
         public string NrMicrochip { get; set; }
 
@@ -34,6 +36,12 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         public string Foto { get; set; }
 
         public string Razza { get; set; }
+        public int Giorni { get; set; }
 
+        public int GetDate()
+        {
+            Giorni = DateTime.Now.Day - DataRicovero.Day; 
+            return Giorni; 
+        }
     }
 }
