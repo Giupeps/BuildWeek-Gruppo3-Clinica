@@ -17,6 +17,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         // GET: Visite
         public ActionResult Index(int? id)
         {
+            ViewBag.id = id;
             var visite = db.Visite.Where( v => v.IdAnimale == id).ToList();
             return View(visite);
         }
@@ -44,10 +45,14 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         }
 
         // GET: Visite/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.IdAnimale = new SelectList(db.Anagr_Animale, "IdAnimale", "Nome");
-            return View();
+            Anagr_Animale a = db.Anagr_Animale.Find(id);
+
+            Visite v = new Visite();
+            v.IdAnimale = a.IdAnimale;
+            ViewBag.Nome = a.Nome;
+            return View(v);
         }
 
         // POST: Visite/Create
@@ -55,17 +60,16 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdVisita,IdAnimale,Data,Referto,Diagnosi")] Visite visite)
+        public ActionResult Create(Visite visite)
         {
             if (ModelState.IsValid)
             {
                 db.Visite.Add(visite);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
             ViewBag.IdAnimale = new SelectList(db.Anagr_Animale, "IdAnimale", "Nome", visite.IdAnimale);
-            return View(visite);
+            return Redirect("/Visite/Index/" + visite.IdAnimale);
         }
 
         // GET: Visite/Edit/5
@@ -89,16 +93,15 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdVisita,IdAnimale,Data,Referto,Diagnosi")] Visite visite)
+        public ActionResult Edit(Visite visite)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(visite).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
             ViewBag.IdAnimale = new SelectList(db.Anagr_Animale, "IdAnimale", "Nome", visite.IdAnimale);
-            return View(visite);
+            return Redirect("/Visite/Index/" + visite.IdAnimale);
         }
 
         // GET: Visite/Delete/5
@@ -124,7 +127,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
             Visite visite = db.Visite.Find(id);
             db.Visite.Remove(visite);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("/Visite/Index/" + visite.IdAnimale);
         }
 
         protected override void Dispose(bool disposing)

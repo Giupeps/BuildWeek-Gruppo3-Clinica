@@ -14,50 +14,50 @@
         <div class="col">
             <h2>Visite</h2>
 
-            <p>
-                @Html.ActionLink("Aggiungi Visita", "Create")
-            </p>
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Anagr_Animale.Nome)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Data)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Referto)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Diagnosi)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
+                <p>
+                    @Html.ActionLink("Aggiungi Visita", "Create", new { id = ViewBag.id })
+                </p>
+                <table class="table">
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Anagr_Animale.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Data)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Referto)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Diagnosi)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Modifica Visita", "Edit", new { id = item.IdVisita }) |
-                            @*@Html.ActionLink("Details", "Details", new { id = item.IdVisita }) |*@
-                            @Html.ActionLink("Cancella", "Delete", new { id = item.IdVisita })
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Anagr_Animale.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Data)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Referto)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Diagnosi)
+                        </th>
+                        <th></th>
                     </tr>
-                }
 
-            </table>
-        </div>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Anagr_Animale.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Data)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Referto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Diagnosi)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Modifica Visita", "Edit", new { id = item.IdVisita }) |
+                                @*@Html.ActionLink("Details", "Details", new { id = item.IdVisita }) |*@
+                                @Html.ActionLink("Cancella", "Delete", new { id = item.IdVisita })
+                            </td>
+                        </tr>
+
+                    }
+                    </table>
+            </div>
     </div>
 </div>

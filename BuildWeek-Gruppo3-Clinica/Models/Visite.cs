@@ -15,6 +15,8 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         public int IdAnimale { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name="Data ricovero")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
 
         [Required]

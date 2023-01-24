@@ -48,13 +48,15 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdAnimale,Nome,IdTipo,Colore,DataNascita,NrMicrochip,Proprietario,NomeProprietario,Indirizzo,Contatto,Foto,FileFoto")] Anagr_Animale anagr_Animale)
+        public ActionResult Create(Anagr_Animale anagr_Animale)
         {
             if (ModelState.IsValid)
             {
-                string Path = Server.MapPath("~/Content/Assets/Img/" + anagr_Animale.FileFoto.FileName);
+                if (anagr_Animale.FileFoto != null) {
+                string Path = Server.MapPath("/Content/Assets/Img/" + anagr_Animale.FileFoto.FileName);
                 anagr_Animale.FileFoto.SaveAs(Path);
                 anagr_Animale.Foto = anagr_Animale.FileFoto.FileName;
+                }
                 db.Anagr_Animale.Add(anagr_Animale);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,8 +87,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdAnimale,Nome,IdTipo,Colore,DataNascita,NrMicrochip,Proprietario," +
-            " NomeProprietario,Indirizzo,Contatto,Foto,FileFoto")] Anagr_Animale anagr_Animale)
+        public ActionResult Edit(Anagr_Animale anagr_Animale)
         {
             if (ModelState.IsValid == true && anagr_Animale.FileFoto !=null)
             {

@@ -25,6 +25,8 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         [Required]
         public string Razza { get; set; }
 
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Anagr_Animale> Anagr_Animale { get; set; }
     }
