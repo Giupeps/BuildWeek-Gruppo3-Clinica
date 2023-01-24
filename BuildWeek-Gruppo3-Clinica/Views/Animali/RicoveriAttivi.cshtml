@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BuildWeek_Gruppo3_Clinica.Models.Tipologia>
+
+@{
+    ViewBag.Title = "RicoveriAttivi";
+}
+
+<h2>RicoveriAttivi</h2>
+
+<div class="container">
+    <div id="Query">
+        @foreach (var item in Model)
+        {
+            <p>@Html.DisplayFor(modelItem => item.Animale) <input type="checkbox" class="CheckValue" name="@item.Animale" value="@item.idTipo" /></p>
+        }
+    </div>
+
+    <btn id="SearchType" class="btn btn-success">Cerca Animale Ricoverato</btn>
+
+    <div id="ResultSearch"></div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#SearchType").click(function () {
+            var mycheck = new Array();
+            $(".CheckValue:checked").each(function () {
+                mycheck.push($(this).val());
+            });
+            $("#ResultSearch").empty();
+            console.log(mycheck);
+            $.ajax({
+                method: 'POST',
+                data: { 'selezione': mycheck },
+                url: 'GetAnimalByType',
+                success: function (a) {
+                    $.each(a, function (index, valore) {
+                        $("#ResultSearch").append("<div class=\"card\" style=\"width:200px\">" +
+                            "<a href=\"../Visite/Index/" + valore.IdAnimale + "\">" +
+                            "<div class=\"card-body\">" +
+                            "<h5 class=\"card-title\">" + valore.Nome + "</h5>" +
+                            "<p class=\"card-text\">Razza: " + valore.Razza + "</p>" +
+                            "<p class=\"card - text\"></p>" +
+                            "</div>" +                           
+                            "<img src=\"/Content/Assets/img/" + valore.Foto + "\" class=\"card-img-bottom\">" +
+                            "</a></div>"
+                        );
+                    })
+                }
+                })
+        })
+    })
+</script>

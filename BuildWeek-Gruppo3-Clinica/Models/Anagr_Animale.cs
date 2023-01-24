@@ -59,6 +59,8 @@ namespace BuildWeek_Gruppo3_Clinica.Models
 
         public virtual Tipologia Tipologia { get; set; }
 
+        public static List<Tipologia> ListTipiAn = new List<Tipologia>();
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Visite> Visite { get; set; }
     }

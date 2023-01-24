@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using BuildWeek_Gruppo3_Clinica.Models;
 
 namespace BuildWeek_Gruppo3_Clinica.Controllers
@@ -20,6 +21,34 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
             var anagr_Animale = db.Anagr_Animale.Include(a => a.Tipologia);
             return View(anagr_Animale.ToList());
         }
+
+        // Pagina Ricerca Ricoveri
+        public ActionResult RicoveriAttivi()
+        {
+            return View(db.Tipologia.ToList());
+        }
+
+        // JQuery
+        public JsonResult GetAnimalByType( string[] selezione)
+        {
+            List<AnimaliJson> aj = new List<AnimaliJson>();
+   
+            foreach (var i in selezione)
+            {
+                int Id = Convert.ToInt32(i);
+
+                List<Anagr_Animale> an = db.Anagr_Animale.Where(x => x.IdTipo == Id && x.Proprietario == false).Include( x => x.Tipologia ).ToList();
+
+                foreach (var item in an)
+                {
+                    AnimaliJson j = new AnimaliJson { Nome = item.Nome, Foto = item.Foto, Razza = item.Tipologia.Razza, DataNascita = item.DataNascita, IdAnimale = item.IdAnimale };
+                    aj.Add(j);
+                }
+            }
+
+            return Json(aj, JsonRequestBehavior.AllowGet);
+        }
+
 
         // GET: Animali/Details/5
         public ActionResult Details(int? id)
@@ -39,7 +68,8 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         // GET: Animali/Create
         public ActionResult Create()
         {
-            ViewBag.IdTipo = new SelectList(db.Tipologia, "idTipo", "Animale");
+            ViewBag.IdTipo = Tipologia.SelectListTipo;
+
             return View();
         }
 
