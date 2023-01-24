@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnimaliController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipologiaController.cs" />
     <Compile Include="Controllers\VisiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +142,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Anagr_Animale.cs" />
+    <Compile Include="Models\AnimaliJson.cs" />
     <Compile Include="Models\ModelDBContext.cs" />
     <Compile Include="Models\Tipologia.cs" />
     <Compile Include="Models\Utente.cs" />
@@ -231,6 +233,11 @@
     <Content Include="Views\Visite\Edit.cshtml" />
     <Content Include="Views\Visite\Index.cshtml" />
     <Content Include="Views\Visite\PartialViewSingleAnimal.cshtml" />
+    <Content Include="Views\Tipologia\Create.cshtml" />
+    <Content Include="Views\Tipologia\Details.cshtml" />
+    <Content Include="Views\Tipologia\Edit.cshtml" />
+    <Content Include="Views\Tipologia\Index.cshtml" />
+    <Content Include="Views\Tipologia\_Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,24 +22,31 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         [StringLength(20)]
         public string Nome { get; set; }
 
+
         public int IdTipo { get; set; }
 
         [Required]
         [StringLength(20)]
+        [Display(Name = "Colore Mantello")]
         public string Colore { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Nascita")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataNascita { get; set; }
 
         [StringLength(6)]
+        [Display(Name = "Cod. Microchip")]
         public string NrMicrochip { get; set; }
 
         public bool Proprietario { get; set; }
 
         [StringLength(20)]
+        [Display(Name = "Proprietario")]
         public string NomeProprietario { get; set; }
 
         [StringLength(50)]
+       
         public string Indirizzo { get; set; }
 
         [StringLength(20)]
