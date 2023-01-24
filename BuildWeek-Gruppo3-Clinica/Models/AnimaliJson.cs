@@ -40,8 +40,10 @@ namespace BuildWeek_Gruppo3_Clinica.Models
 
         public int GetDate()
         {
-            Giorni = DateTime.Now.Day - DataRicovero.Day; 
-            return Giorni; 
+            Giorni = DateTime.Now.Subtract(DataRicovero).Days;
+            return Giorni;            
         }
+
+        
     }
 }
