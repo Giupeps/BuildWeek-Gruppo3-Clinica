@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Ricerca";
 }
 <h2>@ViewBag.Title.</h2>
 
@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <form class="d-flex" role="search">
             <input class="form-control me-2" id="SearchMC" type="search" placeholder="Cerca il tuo amico a 4 zampe" aria-label="Search">
-            <btn class="btn btn-outline-success" id="GetAnimalByMC" type="submit">Search</btn>
+            <btn class="btn btn-primary" id="GetAnimalByMC" type="submit">Cerca</btn>
         </form>
     </div>
 
@@ -34,6 +34,7 @@
                         )
                     } else {
                         $("#showInfo").append("<div class=\"card\" style=\"width:200px\">" +
+                            "<a href=\"../Visite/Index/" + a.IdAnimale + "\">" +
                             "<div class=\"card-body\">" +
                             "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
                             "<p class=\"card-text\">Razza: " + a.Razza + "</p>" +
@@ -41,7 +42,7 @@
                             "<p class=\"card - text\"></p>" +
                             "</div>" +
                             "<img src=\"/Content/Assets/img/" + a.Foto + "\" class=\"card-img-bottom\">" +
-                            "</div>"
+                            "</a></div>"
                         );
 
                     }

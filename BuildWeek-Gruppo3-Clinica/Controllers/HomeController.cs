@@ -38,6 +38,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
 
             if (a != null) {         
             {
+                    aj.IdAnimale = a.IdAnimale;
                     aj.Nome = a.Nome;
                     aj.NrMicrochip = a.NrMicrochip;
                     aj.Foto = a.Foto;

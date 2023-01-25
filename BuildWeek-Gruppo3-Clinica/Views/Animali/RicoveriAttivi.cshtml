@@ -5,6 +5,11 @@
 }
 
 <h2>RicoveriAttivi</h2>
+<container>
+    <div id="info-box" >
+        
+    </div>
+</container>
 
 <div class="container">
     <div id="Query">
@@ -36,18 +41,39 @@
                 success: function (a) {
                     $.each(a, function (index, valore) {
                         $("#ResultSearch").append("<div class=\"card\" style=\"width:200px\">" +
-                            "<a href=\"../Visite/Index/" + valore.IdAnimale + "\">" +
+                            "<a  class= \"mainbody\"href=\"\" data-id=\"" + valore.IdAnimale + "\">" +
                             "<div class=\"card-body\">" +
                             "<h5 class=\"card-title\">" + valore.Nome + "</h5>" +
                             "<p class=\"card-text\">Razza: " + valore.Razza + "</p>" +
                             "<p class=\"card - text\">Ricoverato dal: " + valore.DataNascita + " (" + valore.Giorni + " Giorni)</p>" +
-                            "</div>" +                           
+                            "</div>" +
                             "<img src=\"/Content/Assets/img/" + valore.Foto + "\" class=\"card-img-bottom\">" +
                             "</a></div>"
                         );
                     })
+        $(".mainbody").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                method: 'GET',
+                data: { 'id': id },
+                url: 'GetDetails',
+                success: function (b) {
+            alert("ciao")
+                    $.each(b, function (index, valore) {
+                        $("#info-box").append("<div class=\"container\"><p>ciao</p></div>"
+
+                        );
+                    })
                 }
-                })
+            })
         })
+                }
+            })
+        })
+  
     })
 </script>
+
+   
+
+

@@ -8,7 +8,9 @@
 <div>
     <h2>Dettagli Animale</h2>
     <hr />
+    <img src="~/Content/Assets/img/@Html.DisplayFor(model => model.Foto)" width="200" />
     <dl class="dl-horizontal">
+
         <dt>
             @Html.DisplayNameFor(model => model.Tipologia.Animale)
         </dt>
@@ -85,9 +87,7 @@
             @Html.DisplayNameFor(model => model.Foto)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
+
 
     </dl>
 </div>

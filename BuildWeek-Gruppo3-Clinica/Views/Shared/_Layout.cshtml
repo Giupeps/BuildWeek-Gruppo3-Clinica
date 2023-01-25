@@ -68,9 +68,21 @@
                     <li class="nav-item">
                         <a class="nav-link @(path.StartsWith("/Home/About") ? "active" : "")" href="/Home/About">Cerca il tuo amico</a>
                     </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Logout", "Logout", "Utente")
-                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(path.StartsWith("/Utente/Logout") ? "active" : "")" href="/Utente/Logout">Logout</a>
+                        </li>
+
+                    }
+                    @if(User.Identity.IsAuthenticated == false)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(path.StartsWith("/Utente/Login") ? "active" : "")" href="/Utente/Login">Login Amministratore</a>
+                        </li>
+
+                    }
+
                 </ul>
             </div>
         </div>

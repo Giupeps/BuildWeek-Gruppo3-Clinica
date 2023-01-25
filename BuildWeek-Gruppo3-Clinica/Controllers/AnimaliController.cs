@@ -183,5 +183,13 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult GetDetails(int id)
+        {
+            var visite = db.Visite.Where(v => v.IdAnimale == id).ToList();
+            return Json( visite, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }
