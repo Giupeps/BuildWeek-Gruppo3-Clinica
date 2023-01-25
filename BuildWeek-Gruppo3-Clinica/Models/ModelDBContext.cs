@@ -16,6 +16,7 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         public virtual DbSet<Tipologia> Tipologia { get; set; }
         public virtual DbSet<Utente> Utente { get; set; }
         public virtual DbSet<Visite> Visite { get; set; }
+        public virtual DbSet<Email> Email { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

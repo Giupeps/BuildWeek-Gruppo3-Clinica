@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnimaliController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TipologiaController.cs" />
     <Compile Include="Controllers\VisiteController.cs" />
@@ -140,9 +141,18 @@
     <Compile Include="Migrations\202301230948346_InitialCreate.designer.cs">
       <DependentUpon>202301230948346_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301250836546_AddEmailTable.cs" />
+    <Compile Include="Migrations\202301250836546_AddEmailTable.designer.cs">
+      <DependentUpon>202301250836546_AddEmailTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301250841278_AddEmailTable2.cs" />
+    <Compile Include="Migrations\202301250841278_AddEmailTable2.designer.cs">
+      <DependentUpon>202301250841278_AddEmailTable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Anagr_Animale.cs" />
     <Compile Include="Models\AnimaliJson.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\ModelDBContext.cs" />
     <Compile Include="Models\Tipologia.cs" />
     <Compile Include="Models\Utente.cs" />
@@ -242,6 +252,7 @@
     <Content Include="Views\Tipologia\Index.cshtml" />
     <Content Include="Views\Tipologia\_Delete.cshtml" />
     <Content Include="Views\Animali\RicoveriAttivi.cshtml" />
+    <Content Include="Views\Email\Contattaci.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -254,6 +265,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202301230948346_InitialCreate.resx">
       <DependentUpon>202301230948346_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301250836546_AddEmailTable.resx">
+      <DependentUpon>202301250836546_AddEmailTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301250841278_AddEmailTable2.resx">
+      <DependentUpon>202301250841278_AddEmailTable2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
