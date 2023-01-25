@@ -1,6 +1,8 @@
 ﻿body {
-    width:100vw;
-    height:100vh;
+    width: 100vw;
+    height: fit-content;
+    font-family: 'Josefin Sans', sans-serif;
+    overflow-x:hidden
 }
 
 .img-scale:hover {
@@ -25,15 +27,10 @@ a {
 }
 
 .homePage {
-    background-image: url('assets/img/sfondo-cane.png');
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: 34rem;
-    height: 100vh;
     width: 100%;
-    vertical-align: central;
+    height:fit-content;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column
 }
@@ -47,14 +44,14 @@ textarea {
 .btn{
     letter-spacing: 3px;
 }
-.main {
+.slider {
     position: relative;
     width: 800px;
     height: 500px;
     background-color: #222;
 }
 
-    .main .clip {
+    .slider .clip {
         position: absolute;
         top: 0;
         left: 0;
@@ -63,36 +60,41 @@ textarea {
         transition: 0.5s;
     }
 
-        .main .clip.clip1 {
-            background-image: url(./Assets/Img/Siam);
+        .slider .clip.clip1 {
+            
+            background-image: url(./Assets/Img/SiameseBanner.jpg);
             background-repeat: no-repeat;
-            background-size: cover;
-            clip-path: polygon(0 0, 54% 0, 21% 100%, 0% 100%);
+            background-size: 110%;
+            background-position-x:-80px;
+            
+            clip-path: polygon(0 0, 56% 0, 33% 100%, 0% 100%);
         }
 
-        .main .clip.clip2 {
-            background-image: url(bg-2.jpg);
+        .slider .clip.clip2 {
+            background-image: url(./Assets/Img/Goldenbanner.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-            clip-path: polygon(41% 0, 100% 0, 46% 100%, 19% 100%);
+            clip-path: polygon(45% 0, 90% 0, 60% 100%, 26% 100%);
         }
 
-        .main .clip.clip3 {
-            background-image: url(bg-3.jpg);
+        .slider .clip.clip3 {
+            background-image: url(./Assets/Img/araBanner.jpg);
+            
             background-repeat: no-repeat;
-            background-size: cover;
-            clip-path: polygon(100% 0, 100% 0, 100% 100%, 36% 100%);
+            background-size: 120%;
+            
+            clip-path: polygon(80% 0, 100% 0%, 100% 100%,60% 100%);
         }
 
-    .main:hover .clip {
+    .slider:hover .clip {
         clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
     }
 
-    .main .clip:hover {
+    .slider .clip:hover {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    .main .clip .content {
+    .slider .clip .content {
         position: absolute;
         bottom: -100%;
         left: 0;
@@ -103,7 +105,88 @@ textarea {
         transition: 0.5s;
     }
 
-    .main .clip:hover .content {
+    .slider .clip:hover .content {
         bottom: 0;
         opacity: 1;
+    }
+.sliderContainer{
+    position:relative;
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 500px 100px 0 0;
+    border-color: #109648 transparent transparent transparent;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    
+}
+.bgprimary {
+    background-color: #109648
+}
+.bgsecondary {
+    background-color:#18a999 
+}
+.services {
+    
+    margin-top: 100px;
+    background-color: #109648
+}
+.hex {
+    
+    width: 260px;
+    height: 130px;
+    background-color: #109648;
+    border-color: #109648;
+    position: relative;
+    display: inline-block;
+}
+
+    .hex:before {
+        content: " ";
+        width: 0;
+        height: 0;
+        border-bottom: 75px solid;
+        border-color: inherit;
+        border-left: 130px solid transparent;
+        border-right: 130px solid transparent;
+        position: absolute;
+        top: -75px;
+    }
+
+    .hex:after {
+        content: "";
+        width: 0;
+        position: absolute;
+        bottom: -75px;
+        border-top: 75px solid;
+        border-color: inherit;
+        border-left: 130px solid transparent;
+        border-right: 130px solid transparent;
+    }
+    .servLogo{
+        position:absolute;
+        z-index:1;
+        left:23%;
+        top:-20px
+    }
+    .txtServ{
+        margin-top:120px;
+        font-size:1.4rem;
+        text-align:center
+        
+    }
+    .banner{
+        height:200px;
+        width:100%
+    }
+    footer {
+        border-top:20px solid #18a999;
+        height:220px
+    }
+    p{
+        margin-bottom: 2px
     }
