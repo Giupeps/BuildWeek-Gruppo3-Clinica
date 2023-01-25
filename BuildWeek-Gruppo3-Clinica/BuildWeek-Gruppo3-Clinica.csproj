@@ -132,6 +132,7 @@
     <Compile Include="Controllers\AnimaliController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TipologiaController.cs" />
+    <Compile Include="Controllers\UtenteController.cs" />
     <Compile Include="Controllers\VisiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -242,6 +243,7 @@
     <Content Include="Views\Tipologia\Index.cshtml" />
     <Content Include="Views\Tipologia\_Delete.cshtml" />
     <Content Include="Views\Animali\RicoveriAttivi.cshtml" />
+    <Content Include="Views\Utente\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
