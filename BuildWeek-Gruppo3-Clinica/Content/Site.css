@@ -8,6 +8,37 @@
     transform: scale(2.5)
 }
 
+.navbar {
+    background-color: #ACCBE1;
+    --bs-navbar-active-color: #f8f9fa;
+}
+.active {
+    background-color: #7C98B3;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-item{
+    margin-inline: 30px
+}
+
+.homePage {
+    background-image: url('assets/img/sfondo-cane.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 34rem;
+    height: 100vh;
+    width: 100%;
+    vertical-align: central;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column
+}
+}
+
 input,
 select,
 textarea {

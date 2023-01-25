@@ -152,8 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Assets\Img\bulldog.jpeg" />
+    <Content Include="Content\Assets\Img\logo2.png" />
+    <Content Include="Content\Assets\Img\logo_clinic.jpg" />
     <Content Include="Content\Assets\Img\margherita.jpg" />
     <Content Include="Content\Assets\Img\pastore.jpeg" />
+    <Content Include="Content\Assets\Img\sfondo-cane.jpg" />
+    <Content Include="Content\Assets\Img\sfondo-cane.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
