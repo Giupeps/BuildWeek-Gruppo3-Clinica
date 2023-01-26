@@ -6,8 +6,35 @@
 
 <h2>RicoveriAttivi</h2>
 <container>
-    <div id="info-box" >
-        
+    <div id="info-box" class="d-none" >
+        <div class="container-fluid">
+            <div id="picture" class="text-center"></div>
+            
+            <div class="row d-flex">
+                <div class="col-4" id="cardAnimal">
+
+                </div>
+                <div class="col-8">
+                    <h2>Visite</h2>
+                    <table class="table"  id="visite">
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Paziente")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Data Visita")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Referto")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Diagnosi")
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </container>
 
@@ -40,37 +67,58 @@
                 url: 'GetAnimalByType',
                 success: function (a) {
                     $.each(a, function (index, valore) {
-                        $("#ResultSearch").append("<div class=\"card\" style=\"width:200px\">" +
-                            "<a  class= \"mainbody\"href=\"\" data-id=\"" + valore.IdAnimale + "\">" +
+                        $("#ResultSearch").append("<div class=\"card d-flex\" style=\"width:300px\">" +
+                            "<a class= \"mainbody\"href=\"javascript:;\" data-id=\"" + valore.IdAnimale + "\">" +
                             "<div class=\"card-body\">" +
                             "<h5 class=\"card-title\">" + valore.Nome + "</h5>" +
                             "<p class=\"card-text\">Razza: " + valore.Razza + "</p>" +
-                            "<p class=\"card - text\">Ricoverato dal: " + valore.DataNascita + " (" + valore.Giorni + " Giorni)</p>" +
+                            "<p class=\"card-text\">Ricoverato dal: " + valore.DataNascita + " (" + valore.Giorni + " Giorni)</p>" +
                             "</div>" +
                             "<img src=\"/Content/Assets/img/" + valore.Foto + "\" class=\"card-img-bottom\">" +
                             "</a></div>"
                         );
                     })
-        $(".mainbody").click(function () {
-            var id = $(this).data("id");
-            $.ajax({
-                method: 'GET',
-                data: { 'id': id },
-                url: 'GetDetails',
-                success: function (b) {
-            alert("ciao")
-                    $.each(b, function (index, valore) {
-                        $("#info-box").append("<div class=\"container\"><p>ciao</p></div>"
+                    $(".mainbody").click(function () {
+                        $("#visite").empty();
+                        $("#picture").empty(); 
+                        $("#cardAnimal").empty();
+                        var id = $(this).data("id");
+                        $.ajax({
+                            method: 'POST',
+                            data: { 'id': id },
+                            url: 'GetDetails',
+                            success: function (b) {
+                                $("#info-box").toggleClass("d-none");
+                                var pic;
+                                var Nome;
+                                var Colore;
+                                var Razza;
+                                var MC
+                                $.each(b, function (index, valore) {
+                                    pic = valore.Foto;
+                                    Nome = valore.Nome;
+                                    Colore = valore.Colore;
+                                    Razza = valore.Razza;
+                                    MC = valore.NrMicrochip;
+                                    $("#visite").append("<tr><td>" + valore.Nome + "</td><td>" + valore.Data + "</td><td>" + valore.Referto + "</td><td>" + valore.Diagnosi + "</td></tr>");})
+                                $("#picture").append("<img src=\"/Content/Assets/Img/" + pic + "\" width=\"400\" />")
+                                    $("#cardAnimal").append("<div class=\"card\" style=\"width:300px\">" +
+                                    "<div class=\"card-body\">" +
+                                    "<h5 class=\"card-title\">" + Nome + "</h5>" +
+                                    "<p class=\"card-text\">Razza: " + Razza + "</p>" +
+                                    "<p class=\"card-text\">Colore Mantello: " + Colore + " </p>" +
+                                    "<p class=\"card-text\">Nr Microchip: " + MC + " </p>" +
+                                    "</div>" +
+                                    "</div>"
+                                       );
+                               
+                }
+            })
+        })
+                }
+            })
+        })
 
-                        );
-                    })
-                }
-            })
-        })
-                }
-            })
-        })
-  
     })
 </script>
 

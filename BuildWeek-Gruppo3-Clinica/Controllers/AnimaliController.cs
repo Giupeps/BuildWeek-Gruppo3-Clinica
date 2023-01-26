@@ -186,8 +186,20 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
 
         public JsonResult GetDetails(int id)
         {
-            var visite = db.Visite.Where(v => v.IdAnimale == id).ToList();
-            return Json( visite, JsonRequestBehavior.AllowGet);
+            List<Visite> visite = db.Visite.Include(x=>x.Anagr_Animale).Where(v => v.IdAnimale == id).ToList();
+
+            List<AnimaliJson> aj = new List<AnimaliJson>();
+
+            foreach (var item in visite)
+            {
+                Anagr_Animale a = db.Anagr_Animale.Include(x=>x.Tipologia).Where(x=>x.IdAnimale == item.IdAnimale).FirstOrDefault();
+                AnimaliJson j = new AnimaliJson { IdAnimale = item.IdAnimale, Nome = item.Anagr_Animale.Nome, IdVisita = item.IdVisita, Data = item.Data.ToShortDateString(), 
+                    Referto = item.Referto, Diagnosi = item.Diagnosi, Foto= item.Anagr_Animale.Foto, Razza = a.Tipologia.Razza, Colore = item.Anagr_Animale.Colore
+                };
+                aj.Add(j);
+            }
+
+            return Json( aj, JsonRequestBehavior.AllowGet);
         }
 
 

@@ -28,7 +28,14 @@ namespace BuildWeek_Gruppo3_Clinica.Models
 
         public string NomeProprietario { get; set; }
 
+        public int IdVisita { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        public string Data { get; set; }
+
+        public string Referto { get; set; }
+
+        public string Diagnosi { get; set; }
         public string Indirizzo { get; set; }
 
         public string Contatto { get; set; }
