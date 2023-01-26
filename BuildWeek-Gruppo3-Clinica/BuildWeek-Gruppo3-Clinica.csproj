@@ -151,14 +151,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Assets\Img\araBanner.jpg" />
+    <Content Include="Content\Assets\Img\BlueMacawBanner.jpg" />
     <Content Include="Content\Assets\Img\bobby.jpg" />
     <Content Include="Content\Assets\Img\bulldog.jpeg" />
+    <Content Include="Content\Assets\Img\customer-service.png" />
+    <Content Include="Content\Assets\Img\dog.png" />
+    <Content Include="Content\Assets\Img\fratta.png" />
+    <Content Include="Content\Assets\Img\Goldenbanner.jpg" />
+    <Content Include="Content\Assets\Img\hospital.png" />
+    <Content Include="Content\Assets\Img\letter.png" />
     <Content Include="Content\Assets\Img\logo2.png" />
+    <Content Include="Content\Assets\Img\logo3 %282%29.png" />
+    <Content Include="Content\Assets\Img\logo3.png" />
+    <Content Include="Content\Assets\Img\logologo.png" />
     <Content Include="Content\Assets\Img\logo_clinic.jpg" />
     <Content Include="Content\Assets\Img\margherita.jpg" />
+    <Content Include="Content\Assets\Img\medicine.png" />
+    <Content Include="Content\Assets\Img\parrot.jpg" />
     <Content Include="Content\Assets\Img\pastore.jpeg" />
     <Content Include="Content\Assets\Img\sfondo-cane.jpg" />
     <Content Include="Content\Assets\Img\sfondo-cane.png" />
+    <Content Include="Content\Assets\Img\SiameseBanner.jpg" />
+    <Content Include="Content\Assets\Img\stethoscope.png" />
+    <Content Include="Content\Assets\Img\veterinarian.png" />
+    <Content Include="Content\Assets\Img\video-call.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
