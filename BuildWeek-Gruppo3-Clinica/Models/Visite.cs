@@ -16,7 +16,7 @@ namespace BuildWeek_Gruppo3_Clinica.Models
 
         [Column(TypeName = "date")]
         [Display(Name="Data ricovero")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
 
         [Required]
