@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<div class="container gBorder p-4 mb-5">
 <h2>Cartelle pazienti</h2>
 
-<p>
-    @Html.ActionLink("Aggiungi un nuovo paziente", "Create")
+<p class="createPaziente mb-4">
+    @Html.ActionLink("Aggiungi un nuovo paziente", "Create", new { @class = "button bgsecondary" })
 </p>
-<table class="table">
+<table class="table ">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -79,11 +79,12 @@
 
         </td>
         <td>
-            @Html.ActionLink("Storia Medica", "Index", "Visite", new { id = item.IdAnimale }, null) |
-            @Html.ActionLink("Modifica", "Edit", new { id = item.IdAnimale }) |
-            @Html.ActionLink("Cancella", "Delete", new { id = item.IdAnimale })
+            @Html.ActionLink("Storia Medica", "Index", "Visite", new { id = item.IdAnimale }, new {@class="button bgsecondary" }) 
+            @Html.ActionLink("Modifica", "Edit", new { id = item.IdAnimale }, new { @class = "button bgsecondary" }) 
+            @Html.ActionLink("Cancella", "Delete", new { id = item.IdAnimale }, new { @class = "button bgsecondary" })
         </td>
     </tr>
 }
 
 </table>
+</div>

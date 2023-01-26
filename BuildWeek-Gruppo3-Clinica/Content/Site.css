@@ -48,7 +48,7 @@ textarea {
     position: relative;
     width: 800px;
     height: 500px;
-    background-color: #222;
+    background-color: #109648;
 }
 
     .slider .clip {
@@ -190,3 +190,59 @@ textarea {
     p{
         margin-bottom: 2px
     }
+.gBorder {
+    border: 7px solid #109648;
+    border-radius: 20px;
+}
+.animalCard {
+    width: 500px;
+    border: 7px solid #109648;
+    border-radius: 20px;
+    box-sizing: border-box;
+    overflow:hidden
+}
+.animalCard img {
+    width:100%
+}
+.cardBody {
+    padding:25px 25px 0 25px;
+    color:black;
+    font-size:1.3rem;
+    margin-bottom:15px;
+    position:relative;
+}
+.cardBody h5 {
+    font-size:2rem
+}
+.animalContainer {
+        min-height: 100%;
+        display: flex;
+    }
+.button {
+    width:100px;
+    padding:10px;
+    border-radius:5px;
+    color:aliceblue;
+    text-align:center;
+    border:0
+     
+}
+.pad{
+    height:34px
+}
+#showInfo {
+    position:relative
+}
+.cardIcon {
+    position:absolute;
+    top:15px;
+    right:15px;
+}
+.link {
+    color: #109648
+}
+.createPaziente a {
+    color: #109648;
+    font-size:1.2rem;
+    
+}

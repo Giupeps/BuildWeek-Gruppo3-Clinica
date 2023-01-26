@@ -3,10 +3,10 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<div class="container gBorder p-4 mb-5">
 <h2>Tipologie animali</h2>
 
-<p>
+<p class="createPaziente mb-4">
     @Html.ActionLink("Nuova tipologia animale", "Create")
 </p>
 <table class="table">
@@ -30,9 +30,11 @@
                 @Html.DisplayFor(modelItem => item.Razza)
             </td>
             <td>
-                @Html.ActionLink("Modifica", "Edit", new { id = item.idTipo }) |
-                <button type="button" class="btn btn-primary ModalDelete" data-bs-toggle="modal" data-bs-target="#ModalTipo">
+                <div class="d-flex align-items-baseline h-100">
+                @Html.ActionLink("Modifica", "Edit", new { id = item.idTipo }, new { @class = "button bgsecondary pad" }) 
+                <button type="button" class="button bgsecondary pad ms-3" data-bs-toggle="modal" data-bs-target="#ModalTipo">
                 Elimina </button>
+                </div>
             </td>
         </tr>
                     <div class="modal fade" id="ModalTipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,11 +42,11 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina Tipologia</h1>
-                                    <btn type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></btn>
+                                    <btn type="button" class="button bgsecondary" data-bs-dismiss="modal" aria-label="Close"></btn>
 
                                     <div class="modal-body">
                                         @{
-                                            Html.RenderAction("Delete", new { id = item.idTipo, @class = " modal-link" });
+                                            Html.RenderAction("Delete", new { id = item.idTipo, @class = " button bgsecondary" });
                                         }
                                     </div>
                                 </div>
@@ -55,6 +57,7 @@
     }
 
 </table>
+    </div>
 
 
 

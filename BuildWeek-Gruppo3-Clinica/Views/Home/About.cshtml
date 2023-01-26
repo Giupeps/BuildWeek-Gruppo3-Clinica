@@ -1,19 +1,28 @@
 ﻿@{
     ViewBag.Title = "Ricerca";
 }
-<h2>@ViewBag.Title.</h2>
+<h2 class="visually-hidden">@ViewBag.Title.</h2>
 
 
-    <div class="container-fluid">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" id="SearchMC" type="search" placeholder="Cerca il tuo amico a 4 zampe" aria-label="Search">
-            <btn class="btn btn-primary" id="GetAnimalByMC" type="submit">Cerca</btn>
-        </form>
+
+    <div class="container-fluid d-flex justify-content-start align-items-center ms-5">
+        <div class="searchSection">
+            <form class="" role="search">
+                <h2 class="fs-1">Cerca il tuo amico a 4 zampe</h2>
+                <div class="d-flex w-75">
+                <input class="form-control me-2" id="SearchMC" type="search" placeholder="Numero microchip" aria-label="Search">
+                <btn class="button bgprimary" id="GetAnimalByMC" type="submit">Cerca</btn>
+                </div>
+            </form>
+        </div>
     </div>
 
-<div id="showInfo">
+    <div class="animalContainer ms-5">
+        <div id="showInfo" class="my-5 mx-3">
+            
 
-</div>
+        </div>
+    </div>
 
 
 <script type="text/javascript">
@@ -33,13 +42,14 @@
                         $("#showInfo").append("<div class=\"alert alert-warning mt-2\" style=\"width:200px\">Non è stato rilevato alcun Microchip</div>"
                         )
                     } else {
-                        $("#showInfo").append("<div class=\"card\" style=\"width:200px\">" +
+                        $("#showInfo").append("<div class=\"animalCard\" >" +
                             "<a href=\"../Visite/Index/" + a.IdAnimale + "\">" +
-                            "<div class=\"card-body\">" +
+                            "<div class=\"cardBody\">" +
+                            "<img class=\"cardIcon\" src=\"/Content/Assets/Img/pet-friendly.png\" style=\"width:100px\" />"+
                             "<h5 class=\"card-title\">" + a.Nome + "</h5>" +
                             "<p class=\"card-text\">Razza: " + a.Razza + "</p>" +
                             "<p class=\"card-text\">Colore mantello: " + a.Colore + "</p>" +
-                            "<p class=\"card - text\"></p>" +
+                            
                             "</div>" +
                             "<img src=\"/Content/Assets/img/" + a.Foto + "\" class=\"card-img-bottom\">" +
                             "</a></div>"
