@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
-
+<div class=" container gBorder p-4 mx-auto mb-5">
 <h2>Edit</h2>
 
 
@@ -12,7 +12,7 @@
                 @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Anagr_Animale</h4>
+    <h4>Anagrafica animale</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.IdAnimale)
@@ -100,15 +100,16 @@
             </div>
         </div>
     </div>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Salva modifiche" class="btn btn-outline-warning" />
+                <input type="submit" value="Salva modifiche" class="button bgprimary" />
             </div>
         </div>
     </div>
     }
+    </div>
 
-    <div>
+    <div class="visually-hidden">
         @Html.ActionLink("Torna a cartelle pazienti", "Index")
     </div>
 

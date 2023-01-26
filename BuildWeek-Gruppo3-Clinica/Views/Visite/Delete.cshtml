@@ -4,10 +4,10 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
+<h2 class="visually-hidden">Delete</h2>
+<div class=" container gBorder p-5 mx-auto mb-5">
+<h3 class="ms-5 fs-2">Are you sure you want to delete this?<i class="fa-solid fa-eraser"></i></h3>
+<div class="ms-5">
     <h4>Visite</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -48,9 +48,10 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index", new { id = Model.IdAnimale })
+        <div class="form-actions no-color mb-5">
+            <input type="submit" value="Delete" class="button bg-danger py-1 me-2" /> 
+            @Html.ActionLink("Back to List", "Index", new { id = Model.IdAnimale }, new {@class="button bgprimary py-2"})
         </div>
     }
+    </div>
 </div>

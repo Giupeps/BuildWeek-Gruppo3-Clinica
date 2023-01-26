@@ -5,92 +5,94 @@
     Layout = null;
 }
 
-<div>
-    <h2>Dettagli Animale</h2>
-    <hr />
-    <img src="~/Content/Assets/img/@Html.DisplayFor(model => model.Foto)" width="200" />
-    <dl class="dl-horizontal">
+    <h2 class="ms-5">Dettagli Animale</h2>
+<div class="d-flex idAnimal gBorder overflow-hidden fs-5 mx-auto  mb-5">
+    <div class="animalPic">
+        <img src="~/Content/Assets/img/@Html.DisplayFor(model => model.Foto)"  />
+    </div>
+    <dl class="dl-horizontal d-flex flex-wrap fs-5 px-4 pt-3 m-0">
+        <div class="me-5">
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipologia.Animale)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipologia.Animale)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Tipologia.Animale)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tipologia.Animale)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Colore)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Colore)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Colore)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Colore)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataNascita)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataNascita)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataNascita)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataNascita)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NrMicrochip)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NrMicrochip)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NrMicrochip)
+            </dd>
+        </div>
+        <div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Proprietario)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NrMicrochip)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Proprietario)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Proprietario)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeProprietario)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Proprietario)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NomeProprietario)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeProprietario)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Indirizzo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeProprietario)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Indirizzo)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Indirizzo)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Contatto)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Indirizzo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Contatto)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contatto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Contatto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Foto)
-        </dt>
-
+            <dt class="visually-hidden">
+                @Html.DisplayNameFor(model => model.Foto)
+            </dt>
+        </div>
 
 
     </dl>
 </div>
-<p>
+<p class="visually-hidden">
     @Html.ActionLink("Torna alla lista degli animali", "Index", "Animali")
 </p>

@@ -12,10 +12,13 @@
 
 .navbar {
     background-color: #ACCBE1;
-    --bs-navbar-active-color: #f8f9fa;
+    --bs-navbar-active-color: #8af3ff;
 }
 .active {
-    background-color: #7C98B3;
+    background-color: transparent;
+    color: #8af3ff;
+    border-bottom: 3px solid #8af3ff;
+    padding-bottom: 0
 }
 
 a {
@@ -219,7 +222,8 @@ textarea {
         display: flex;
     }
 .button {
-    width:100px;
+    min-width:100px;
+    width:fit-content;
     padding:10px;
     border-radius:5px;
     color:aliceblue;
@@ -241,6 +245,9 @@ textarea {
 .link {
     color: #109648
 }
+.link a {
+    color: #109648
+}
 .createPaziente a {
     color: #109648;
     font-size:1.2rem;
@@ -251,4 +258,21 @@ textarea {
 }
 .animalDetails {
     order:1
+}
+.animalPic {
+    width:50%
+}
+.animalPic img {
+    width:100%;
+    height:100%
+}
+.idAnimal{
+    width:90%;
+    min-width:800px
+}
+dt{
+    font-size:1.35rem
+}
+.fa-eraser {
+    color:currentColor
 }

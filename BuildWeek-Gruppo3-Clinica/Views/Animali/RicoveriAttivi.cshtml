@@ -6,7 +6,7 @@
     ViewBag.Title = "RicoveriAttivi";
 }
 <div class="container">
-    <h2 class="">Ricoveri Attivi</h2>
+    <h2 class="fs-1">Ricoveri Attivi</h2>
 </div>
 <container class="container">
     <div id="info-box" class="d-none">
@@ -45,13 +45,13 @@
     <div id="Query">
         @foreach (var item in Model)
         {
-            <p class="mx-2">@Html.DisplayFor(modelItem => item.Animale) <input type="checkbox" class="CheckValue" name="@item.Animale" value="@item.idTipo" /></p>
+            <p class="mx-2 mb-3 fs-5">@Html.DisplayFor(modelItem => item.Animale) <input type="checkbox" class="CheckValue" name="@item.Animale" value="@item.idTipo" /></p>
         }
     </div>
 
-    <btn id="SearchType" class="btn btn-success mb-5 mt-3">Cerca Animale Ricoverato</btn>
+    <btn id="SearchType" class="button bgprimary mb-5 mt-5">Cerca Animale Ricoverato</btn>
 
-    <div id="ResultSearch" class="mb-5"></div>
+    <div id="ResultSearch" class="mt-5 mb-5"></div>
 
 </div>
 

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row d-flex">
         <div class="col">
             @{
@@ -13,9 +13,10 @@
         </div>
         <div class="col">
             <h2>Visite</h2>
-
-                <p>
+            <div class="">
+                <p class="link">
                     @Html.ActionLink("Aggiungi Visita", "Create", new { id = ViewBag.id })
+                    <i class="fa-solid fa-plus link"></i>
                 </p>
                 <table class="table">
                     <tr>
@@ -50,14 +51,15 @@
                                 @Html.DisplayFor(modelItem => item.Diagnosi)
                             </td>
                             <td>
-                                @Html.ActionLink("Modifica Visita", "Edit", new { id = item.IdVisita }) |
+                                @Html.ActionLink("Modifica Visita", "Edit", new { id = item.IdVisita },new { @class = "button bgsecondary" }) 
                                 @*@Html.ActionLink("Details", "Details", new { id = item.IdVisita }) |*@
-                                @Html.ActionLink("Cancella", "Delete", new { id = item.IdVisita })
+                                @Html.ActionLink("Cancella", "Delete", new { id = item.IdVisita }, new { @class = "button bgsecondary" })
                             </td>
                         </tr>
 
                     }
-                    </table>
+                </table>
             </div>
+        </div>
     </div>
 </div>
