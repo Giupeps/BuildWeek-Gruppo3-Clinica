@@ -1,22 +1,25 @@
 ﻿@model IEnumerable<BuildWeek_Gruppo3_Clinica.Models.Tipologia>
 
+
+
 @{
     ViewBag.Title = "RicoveriAttivi";
 }
-
-<h2>RicoveriAttivi</h2>
-<container>
-    <div id="info-box" class="d-none" >
+<div class="container">
+    <h2 class="">Ricoveri Attivi</h2>
+</div>
+<container class="container">
+    <div id="info-box" class="d-none">
         <div class="container-fluid">
             <div id="picture" class="text-center"></div>
-            
-            <div class="row d-flex">
-                <div class="col-4" id="cardAnimal">
+
+            <div class=" d-flex">
+                <div class="animalDetails" id="cardAnimal">
 
                 </div>
-                <div class="col-8">
+                <div class="animalCheck">
                     <h2>Visite</h2>
-                    <table class="table"  id="visite">
+                    <table class="table" id="visite">
                         <tr>
                             <th>
                                 @Html.DisplayName("Paziente")
@@ -42,13 +45,13 @@
     <div id="Query">
         @foreach (var item in Model)
         {
-            <p>@Html.DisplayFor(modelItem => item.Animale) <input type="checkbox" class="CheckValue" name="@item.Animale" value="@item.idTipo" /></p>
+            <p class="mx-2">@Html.DisplayFor(modelItem => item.Animale) <input type="checkbox" class="CheckValue" name="@item.Animale" value="@item.idTipo" /></p>
         }
     </div>
 
-    <btn id="SearchType" class="btn btn-success">Cerca Animale Ricoverato</btn>
+    <btn id="SearchType" class="btn btn-success mb-5 mt-3">Cerca Animale Ricoverato</btn>
 
-    <div id="ResultSearch"></div>
+    <div id="ResultSearch" class="mb-5"></div>
 
 </div>
 
@@ -67,9 +70,10 @@
                 url: 'GetAnimalByType',
                 success: function (a) {
                     $.each(a, function (index, valore) {
-                        $("#ResultSearch").append("<div class=\"card d-flex\" style=\"width:300px\">" +
+                        $("#ResultSearch").append("<div class=\"animalCard\" >" +
                             "<a class= \"mainbody\"href=\"javascript:;\" data-id=\"" + valore.IdAnimale + "\">" +
-                            "<div class=\"card-body\">" +
+                            "<div class=\"cardBody\">" +
+                            "<img class=\"cardIcon\" src=\"/Content/Assets/Img/ricovero.png\" style=\"width:100px\" />" +
                             "<h5 class=\"card-title\">" + valore.Nome + "</h5>" +
                             "<p class=\"card-text\">Razza: " + valore.Razza + "</p>" +
                             "<p class=\"card-text\">Ricoverato dal: " + valore.DataNascita + " (" + valore.Giorni + " Giorni)</p>" +
