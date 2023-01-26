@@ -116,7 +116,7 @@ textarea {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 500px 100px 0 0;
+    border-width: 500px 150px 0 0;
     border-color: #109648 transparent transparent transparent;
     position:absolute;
     top:0;
