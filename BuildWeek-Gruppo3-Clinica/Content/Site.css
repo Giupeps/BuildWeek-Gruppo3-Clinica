@@ -21,6 +21,10 @@
     padding-bottom: 0
 }
 
+.modal {
+    --bs-modal-footer-border-width: 0;
+}
+
 a {
     text-decoration: none;
 }

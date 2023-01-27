@@ -38,16 +38,15 @@
                 </div>
             </td>
         </tr>
-                    <div class="modal fade" id="ModalTipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade fs-4" id="ModalTipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina Tipologia</h1>
-                                    <btn type="button" class="button bgsecondary" data-bs-dismiss="modal" aria-label="Close"></btn>
+                                <div class="modal-header flex-column">
+                                    <h1 class="modal-title fs-4" id="exampleModalLabel">Elimina Tipologia</h1>                                  
 
                                     <div class="modal-body">
                                         @{
-                                            Html.RenderAction("Delete", new { id = item.idTipo, @class = " button bgsecondary" });
+                                            Html.RenderAction("Delete", new { id = item.idTipo, @class="button bgsecondary" });
                                         }
                                     </div>
                                 </div>
