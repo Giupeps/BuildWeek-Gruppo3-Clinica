@@ -27,7 +27,11 @@
 
 a {
     text-decoration: none;
+
 }
+    a:hover {
+        color: #8af3ff
+    }
 
 .nav-item{
     margin-inline: 30px
