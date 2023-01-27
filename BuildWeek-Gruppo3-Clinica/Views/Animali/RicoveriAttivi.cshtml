@@ -10,30 +10,15 @@
 </div>
 <container class="container">
     <div id="info-box" class="d-none">
-        <div class="container-fluid">
-            <div id="picture" class="text-center"></div>
-
-            <div class=" d-flex">
-                <div class="animalDetails" id="cardAnimal">
+        <div class="container">
+            <div class="d-flex row">
+                <div class="animalDetails col-5" id="cardAnimal">
 
                 </div>
-                <div class="animalCheck">
+                <div class="animalCheck col-5 fs-5">
                     <h2>Visite</h2>
                     <table class="table" id="visite">
-                        <tr>
-                            <th>
-                                @Html.DisplayName("Paziente")
-                            </th>
-                            <th>
-                                @Html.DisplayName("Data Visita")
-                            </th>
-                            <th>
-                                @Html.DisplayName("Referto")
-                            </th>
-                            <th>
-                                @Html.DisplayName("Diagnosi")
-                            </th>
-                        </tr>
+                        
                     </table>
                 </div>
             </div>
@@ -51,7 +36,7 @@
 
     <btn id="SearchType" class="button bgprimary mb-5 mt-5">Cerca Animale Ricoverato</btn>
 
-    <div id="ResultSearch" class="mt-5 mb-5"></div>
+    <div id="ResultSearch" class="mt-5 mb-5 d-flex gap-2"></div>
 
 </div>
 
@@ -72,8 +57,8 @@
                         $("#ResultSearch").append("<div class=\"alert alert-warning\">Nessun ricovero attivo </div>")
                     }
                     $.each(a, function (index, valore) {
-                        
-                      
+
+
                             $("#ResultSearch").append("<div class=\"animalCard\" >" +
                                 "<a class= \"mainbody\"href=\"javascript:;\" data-id=\"" + valore.IdAnimale + "\">" +
                                 "<div class=\"cardBody\">" +
@@ -85,46 +70,58 @@
                                 "<img src=\"/Content/Assets/img/" + valore.Foto + "\" class=\"card-img-bottom\">" +
                                 "</a></div>"
                             );
-                        
+
                         })
-                 
+
                     $(".mainbody").click(function () {
                         $("#visite").empty();
-                        $("#picture").empty(); 
+                        $("#picture").empty();
                         $("#cardAnimal").empty();
                         var id = $(this).data("id");
                         $.ajax({
                             method: 'POST',
                             data: { 'id': id },
                             url: 'GetDetails',
-                            success: function (b) {
+                            success: function (b) {                             
                                 $("#info-box").toggleClass("d-none");
                                 var pic;
                                 var Nome;
                                 var Colore;
                                 var Razza;
-                                var MC
+                                var MC;
+                                var Animale;
+                                var Ritrovato;
                                 $.each(b, function (index, valore) {
                                     pic = valore.Foto;
                                     Nome = valore.Nome;
                                     Colore = valore.Colore;
                                     Razza = valore.Razza;
+                                    Animale = valore.Animale;
                                     MC = valore.NrMicrochip;
-                                    $("#visite").append("<tr><td>" + valore.Nome + "</td><td>" + valore.Data + "</td><td>" + valore.Referto + "</td><td>" + valore.Diagnosi + "</td></tr>");})
-                                $("#picture").append("<img src=\"/Content/Assets/Img/" + pic + "\" width=\"400\" />")
-                                    $("#cardAnimal").append("<div class=\"card\" style=\"width:300px\">" +
-                                    "<div class=\"card-body\">" +
-                                    "<h5 class=\"card-title\">" + Nome + "</h5>" +
-                                    "<p class=\"card-text\">Razza: " + Razza + "</p>" +
-                                    "<p class=\"card-text\">Colore Mantello: " + Colore + " </p>" +
-                                    "<p class=\"card-text\">Nr Microchip: " + MC + " </p>" +
-                                    "</div>" +
-                                    "</div>"
-                                       );
-                               
-                }
-            })
-        })
+                                    Ritrovato = valore.DataNascita
+                                    if (index == 0) {
+                                        $("#visite").append("<tr><th>Paziente</th><th>Data Visita</th><th>Referto</th><th>Diagnosi</th></tr>" +
+                                            "<tr><td>" + valore.Nome + "</td><td>" + valore.Data + "</td><td>" + valore.Referto +
+                                            "</td><td>" + valore.Diagnosi + "</td></tr>")
+                                    } else {
+                                        $("#visite").append("<tr><td>" + valore.Nome + "</td><td>" + valore.Data + "</td><td>" + valore.Referto +
+                                            "</td><td>" + valore.Diagnosi + "</td></tr>")};                               
+                                })     
+                                
+                                $("#cardAnimal").append("<h2 class=\"ms-5\">Dettagli Animale</h2>" +
+                                    "<div class=\"d-flex idAnimal gBorder overflow-hidden fs-5 mx-auto mb-5\">" +
+                                    "<div class=\"animalPic\"><img src=\"/Content/Assets/img/" + pic + "\"></div>" +
+                                    "<dl class=\"dl-horizontal d-flex flex-wrap fs-5 px-4 pt-3 m-0\"><div class=\"me-5\">" +
+                                    "<dt>Nome: </dt><dd>" + Nome + "</dd>" +
+                                    "<dt>Razza: </dt><dd>" + Animale + " " + Razza + "</dd>" +
+                                    "<dt>Mantello: </dt><dd>" + Colore + "</dd>" +
+                                    "<dt>Ritrovato il: </dt><dd>" + Ritrovato + "</dd>" +
+                                    "<dt>Microchip nr: </dt><dd>" + MC + "</dd></div></dl></div>"
+                                    );
+                                
+                              }
+                            })
+                        })
                 }
             })
         })

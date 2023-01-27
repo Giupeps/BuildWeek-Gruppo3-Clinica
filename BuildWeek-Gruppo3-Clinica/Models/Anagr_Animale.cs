@@ -31,7 +31,7 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         public string Colore { get; set; }
 
         [Column(TypeName = "date")]
-        [Display(Name = "Nascita")]
+        [Display(Name = "Data Nascita / Ritrovamento")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataNascita { get; set; }
 

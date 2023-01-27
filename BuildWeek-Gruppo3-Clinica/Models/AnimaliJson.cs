@@ -14,7 +14,7 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         public string Nome { get; set; }
 
         public int IdTipo { get; set; }
-
+        public string Animale { get; set; }
         public string Colore { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
