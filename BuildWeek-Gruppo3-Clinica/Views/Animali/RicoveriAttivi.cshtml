@@ -70,7 +70,7 @@
                 url: 'GetAnimalByType',
                 success: function (a) {
                     console.log(a);
-                    if (a.Foto == "") {
+                    if (a.length == 0) {
                         $("#ResultSearch").append("<div class=\"alert alert-warning\">Nessun ricovero attivo</div>")
                     }
                     $.each(a, function (index, valore) {                        
