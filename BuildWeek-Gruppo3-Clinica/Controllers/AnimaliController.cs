@@ -87,10 +87,15 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
                 string Path = Server.MapPath("/Content/Assets/Img/" + anagr_Animale.FileFoto.FileName);
                 anagr_Animale.FileFoto.SaveAs(Path);
                 anagr_Animale.Foto = anagr_Animale.FileFoto.FileName;
+                db.Anagr_Animale.Add(anagr_Animale);
+                db.SaveChanges();
+                return Redirect("../Visite/Create/" + anagr_Animale.IdAnimale);
                 }
+                else {
                 db.Anagr_Animale.Add(anagr_Animale);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+                }
             }
 
             ViewBag.IdTipo = new SelectList(db.Tipologia, "idTipo", "Animale", anagr_Animale.IdTipo);
