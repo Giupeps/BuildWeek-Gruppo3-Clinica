@@ -63,16 +63,17 @@
             $(".CheckValue:checked").each(function () {
                 mycheck.push($(this).val());
             });
-            console.log(mycheck);
             $.ajax({
                 method: 'POST',
                 data: { 'selezione': mycheck },
                 url: 'GetAnimalByType',
                 success: function (a) {
-                    if (a.Foto == "") {
-                        $("#ResultSearch").append("<div class=\"alert alert-warning\">Nessun ricovero attivo</div>")
+                    if (a.length == 0) {
+                        $("#ResultSearch").append("<div class=\"alert alert-warning\">Nessun ricovero attivo </div>")
                     }
-                    $.each(a, function (index, valore) {                        
+                    $.each(a, function (index, valore) {
+                        
+                      
                             $("#ResultSearch").append("<div class=\"animalCard\" >" +
                                 "<a class= \"mainbody\"href=\"javascript:;\" data-id=\"" + valore.IdAnimale + "\">" +
                                 "<div class=\"cardBody\">" +
@@ -84,6 +85,7 @@
                                 "<img src=\"/Content/Assets/img/" + valore.Foto + "\" class=\"card-img-bottom\">" +
                                 "</a></div>"
                             );
+                        
                         })
                  
                     $(".mainbody").click(function () {
