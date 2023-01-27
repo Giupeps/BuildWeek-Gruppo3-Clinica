@@ -63,12 +63,13 @@
             $(".CheckValue:checked").each(function () {
                 mycheck.push($(this).val());
             });
-            console.log(mycheck);
+            /*console.log(mycheck);*/
             $.ajax({
                 method: 'POST',
                 data: { 'selezione': mycheck },
                 url: 'GetAnimalByType',
                 success: function (a) {
+                    console.log(a);
                     if (a.Foto == "") {
                         $("#ResultSearch").append("<div class=\"alert alert-warning\">Nessun ricovero attivo</div>")
                     }
