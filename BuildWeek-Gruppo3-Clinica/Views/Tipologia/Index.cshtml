@@ -4,79 +4,67 @@
     ViewBag.Title = "Index";
 }
 <div class="container gBorder p-4 mb-5">
-<h2>Tipologie animali</h2>
+    <h2>Tipologie animali</h2>
 
-<p class="createPaziente mb-4">
-    @Html.ActionLink("Nuova tipologia animale", "Create")
-    <i class="fa-solid fa-plus link"></i>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Animale)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Razza)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <p class="createPaziente mb-4">
+        @Html.ActionLink("Nuova tipologia animale", "Create")
+        <i class="fa-solid fa-plus link"></i>
+    </p>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Animale)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Razza)
-            </td>
-            <td>
-                <div class="d-flex align-items-baseline h-100">
-                @Html.ActionLink("Modifica", "Edit", new { id = item.idTipo }, new { @class = "button bgsecondary pad" }) 
-                <button type="button" class="button bgsecondary pad ms-3" data-bs-toggle="modal" data-bs-target="#ModalTipo">
-                Elimina </button>
-                </div>
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Animale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Razza)
+            </th>
+            <th></th>
         </tr>
-                    <div class="modal fade fs-4" id="ModalTipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header flex-column">
-                                    <h1 class="modal-title fs-4" id="exampleModalLabel">Elimina Tipologia</h1>                                  
 
-                                    <div class="modal-body">
-                                        @{
-                                            Html.RenderAction("Delete", new { id = item.idTipo, @class="button bgsecondary" });
-                                        }
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Razza)
+                </td>
+                <td>
+                    <div class="d-flex align-items-baseline h-100">
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.idTipo }, new { @class = "button bgsecondary pad" })
+                       
+                            @Html.ActionLink("Elimina", "Delete", new { id = item.idTipo }, new { @class = "button bgsecondary pad ms-3" })
+                 
                     </div>
-    }
+                </td>
 
-</table>
+            </tr>
+
+    }
+    </table>
+
     </div>
 
 
 
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".ModalDelete").click(function (e) {
-                e.preventDefault();
-            $(this).attr("data-bs-target", "#ModalTipo");
-            $(this).attr("data-bs-toggle", "modal");
-            });
-         
-            $("body").on("click", ".btn-close", function () {
-                $("#ModalTipo").modal("hide");
-            });
+        @*<script type="text/javascript">
+            $(document).ready(function () {
+                $(".ModalDelete").click(function (e) {
 
-        $("#ModalTipo").on("hidden.bs.modal", function () {
-                $(this).removeData("bs.modal");
+                    e.preventDefault();
+                    $(this).attr("data-bs-target", "#ModalTipo");
+                    $(this).attr("data-bs-toggle", "modal");
+                });
+
+                $("body").on("click", ".btn-close", function () {
+                    $("#ModalTipo").modal("hide");
+                });
+
+                $("#ModalTipo").on("hidden.bs.modal", function () {
+                    $(this).removeData("bs.modal");
+                });
             });
-        });
-</script>
+        </script>*@

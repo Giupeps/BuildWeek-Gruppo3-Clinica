@@ -10,11 +10,13 @@ using BuildWeek_Gruppo3_Clinica.Models;
 
 namespace BuildWeek_Gruppo3_Clinica.Controllers
 {
+    [Authorize]
     public class VisiteController : Controller
     {
         private ModelDBContext db = new ModelDBContext();
 
         // GET: Visite
+        [AllowAnonymous]
         public ActionResult Index(int? id)
         {
             ViewBag.id = id;
@@ -23,6 +25,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         }
 
         // GET Animale come PartialView
+        [AllowAnonymous]
         public ActionResult PartialViewSingleAnimal(int? id)
         {
             Anagr_Animale animal = db.Anagr_Animale.Find(id);         

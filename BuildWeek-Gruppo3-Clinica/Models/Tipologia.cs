@@ -18,6 +18,7 @@ namespace BuildWeek_Gruppo3_Clinica.Models
         }
 
         [Key]
+        [Display(Name = "Specie")]
         public int idTipo { get; set; }
 
         [Required]

@@ -1,6 +1,17 @@
 ﻿@model BuildWeek_Gruppo3_Clinica.Models.Tipologia
 
-    <div>
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+
+<div class=" container gBorder p-5 mx-auto mb-5">
+    <h3 class="ms-5 fs-2">Sei sicuro di eliminare questo elemento?<i class="fa-solid fa-eraser"></i></h3>
+    <div class="ms-5">
+        <h4>Dettagli tipologia</h4>
+        <hr />
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Animale)
@@ -20,16 +31,14 @@
 
         </dl>
 
-
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="button bgprimary" data-bs-dismiss="modal">Annulla</button>
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Elimina" class="button bg-danger" /> 
+            <div class="form-actions no-color mb-5">
+                <input type="submit" value="Elimina" class="button bg-danger py-1 me-2" />
+                @Html.ActionLink("Annulla", "Index", new { id = Model.idTipo }, new { @class = "button bgprimary py-2" })
             </div>
         }
     </div>
+</div>

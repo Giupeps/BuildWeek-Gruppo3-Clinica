@@ -268,7 +268,7 @@ textarea {
     order:1
 }
 .animalPic {
-    width:50%
+    width:100%
 }
 .animalPic img {
     width:100%;
@@ -283,4 +283,8 @@ dt{
 }
 .fa-eraser {
     color:currentColor
+}
+
+.form-group{
+    margin-top: 1em;
 }

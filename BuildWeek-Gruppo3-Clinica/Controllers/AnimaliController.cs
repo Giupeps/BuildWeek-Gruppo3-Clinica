@@ -11,6 +11,7 @@ using BuildWeek_Gruppo3_Clinica.Models;
 
 namespace BuildWeek_Gruppo3_Clinica.Controllers
 {
+    [Authorize]
     public class AnimaliController : Controller
     {
         private ModelDBContext db = new ModelDBContext();
@@ -23,6 +24,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         }
 
         // Pagina Ricerca Ricoveri
+
         public ActionResult RicoveriAttivi()
         {
             return View(db.Tipologia.ToList());
@@ -114,7 +116,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdTipo = new SelectList(db.Tipologia, "idTipo", "Animale", anagr_Animale.IdTipo);
+            ViewBag.IdTipo = Tipologia.SelectListTipo;
             return View(anagr_Animale);
         }
 

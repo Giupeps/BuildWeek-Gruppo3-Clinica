@@ -10,6 +10,7 @@ using BuildWeek_Gruppo3_Clinica.Models;
 
 namespace BuildWeek_Gruppo3_Clinica.Controllers
 {
+    [Authorize]
     public class TipologiaController : Controller
     {
         private ModelDBContext db = new ModelDBContext();
@@ -24,6 +25,7 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
         // GET: Tipologia/Create
         public ActionResult Create()
         {
+         
             return View();
         }
 
@@ -87,13 +89,13 @@ namespace BuildWeek_Gruppo3_Clinica.Controllers
             {
                 return HttpNotFound();
             }
-            return PartialView("_Delete", tipologia);
+            return View("Delete", tipologia);
         }
 
         // POST: Tipologia/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult _Delete(int id)
+        public ActionResult Delete(int id)
         {
             Tipologia tipologia = db.Tipologia.Find(id);
             db.Tipologia.Remove(tipologia);
